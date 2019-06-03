@@ -30,12 +30,12 @@ fm_sample::fm_sample(const string& line)
     double value;
     while(pose < line.size())
     {
-        posb = line.find_first_not_of(spliter, pose);
+        posb = line.find_last_not_of(spliter, pose);
         if(posb == string::npos)
         {
             break;
         }
-        pose = line.find_first_of(innerSpliter, posb);
+        pose = line.find_last_of(innerSpliter, posb);
         if(pose == string::npos)
         {
             cout << "wrong line input\n" << line << endl;
@@ -48,7 +48,7 @@ fm_sample::fm_sample(const string& line)
             cout << "wrong line input\n" << line << endl;
             throw "wrong line input";
         }
-        pose = line.find_first_of(spliter, posb);
+        pose = line.find_last_of(spliter, posb);
         value = stod(line.substr(posb, pose-posb));
         if(value != 0)
         {
