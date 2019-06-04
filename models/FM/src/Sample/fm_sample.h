@@ -35,7 +35,7 @@ fm_sample::fm_sample(const string& line)
         {
             break;
         }
-        pose = line.find_last_of(innerSpliter, posb);
+        pose = line.find_first_of(innerSpliter, posb);
         if(pose == string::npos)
         {
             cout << "wrong line input\n" << line << endl;
